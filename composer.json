@@ -1,0 +1,29 @@
+{
+    "name": "geekmancn/aliyun-api-gateway-sign",
+    "description": "aliyun api gateway sign",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "geekman",
+            "email": "geekmancn@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Geekmancn\\Aliyun\\Gateway\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Geekmancn\\Aliyun\\Gateway\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
