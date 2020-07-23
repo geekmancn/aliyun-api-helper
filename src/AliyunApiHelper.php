@@ -15,7 +15,7 @@ use Geekmancn\Aliyun\Gateway\Constant\SystemHeader;
 use Geekmancn\Aliyun\Gateway\Http\HttpClient;
 use Geekmancn\Aliyun\Gateway\Http\HttpRequest;
 
-class AliyunApiSigner
+class AliyunApiHelper
 {
     protected $appKey;
     protected $appSecret;
@@ -29,14 +29,14 @@ class AliyunApiSigner
     }
 
     /**
+     * @param string $path
      * @param array $querys
      * @param array $params
      * @param array $headers
      * @return Http\HttpResponse
      */
-    public function getSign($method, $querys = [], $params = [], $headers = []) {
+    public function getSign($method, $path, $querys = [], $params = [], $headers = []) {
         //域名后、query前的部分
-        $path = $this->getPath($method);
         $request = new HttpRequest($this->host, $path, $method, $this->appKey, $this->appSecret);
 
         //设定Content-Type，根据服务器端接受的值来设置
@@ -71,22 +71,5 @@ class AliyunApiSigner
         }
 
         return HttpClient::execute($request);
-    }
-
-
-    protected function getPath($method)
-    {
-        if(HttpMethod::GET == $method){
-            $path = '/get';
-        }elseif(HttpMethod::POST == $method){
-            $path = '/postform';
-        }elseif(HttpMethod::DELETE == $method){
-            $path = '/delete';
-        }elseif(HttpMethod::HEAD == $method){
-            $path = '/head';
-        }else{
-            throw new \Exception('method not allowed');
-        }
-        return $path;
     }
 }
