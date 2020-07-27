@@ -1,6 +1,6 @@
 {
-    "name": "geekmancn/aliyun-api-gateway-sign",
-    "description": "aliyun api gateway sign",
+    "name": "geekmancn/aliyun-api-helper",
+    "description": "aliyun api helper",
     "type": "project",
     "license": "MIT",
     "authors": [

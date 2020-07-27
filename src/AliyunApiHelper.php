@@ -35,7 +35,7 @@ class AliyunApiHelper
      * @param array $headers
      * @return Http\HttpResponse
      */
-    public function getSign($method, $path, $querys = [], $params = [], $headers = []) {
+    public function request($method, $path, $querys = [], $params = [], $headers = []) {
         //域名后、query前的部分
         $request = new HttpRequest($this->host, $path, $method, $this->appKey, $this->appSecret);
 
